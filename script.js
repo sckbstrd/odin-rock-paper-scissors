@@ -13,3 +13,7 @@ function getComputerChoice() {
 	return choice;
 }	
 
+function getHumanChoice() {
+	let choice = prompt("YOUR TURN: ").toLowerCase();
+	return choice;
+}
