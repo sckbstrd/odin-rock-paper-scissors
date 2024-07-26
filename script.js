@@ -1,8 +1,3 @@
-// Global Variables 
-
-let humanScore = 0; 
-let computerScore = 0; 
-
 // Functions
 
 function getComputerChoice() {
@@ -25,40 +20,71 @@ function getHumanChoice() {
 	return choice;
 }
 
-function playRound(humanChoice, computerChoice) {
-	console.log("You: " + humanChoice + "\nComputer: "  + computerChoice)
-	if (humanChoice == computerChoice) {
-		return "It's a tie!";
+
+
+function playGame() {
+	let humanScore = 0; 
+	let computerScore = 0; 
+
+	function playRound() {
+		let humanSelection = getHumanChoice();
+		let computerSelection = getComputerChoice();
+
+		console.log("You: " + humanSelection + "\nComputer: "  + computerSelection)
+
+		if (humanSelection == computerSelection) {
+			humanScore += 1;
+			computerScore += 1;
+			return "It's a tie!";
+		}
+	
+		if (humanSelection == "rock") {
+			if (computerSelection == "scissors") {
+				humanScore += 1;
+				return "You won! Rock beats scissors."
+			} else {
+				computerScore += 1;
+				return "You lost! Paper beats rock."
+			}
+		} 
+	
+		if (humanSelection == "paper") {
+			if (computerSelection == "rock") {
+				humanScore += 1;
+				return "You won! paper beats rock."
+			} else {
+				computerScore += 1;
+				return "You lost! Scissors beats paper."
+			}
+		} 
+	
+		if (humanSelection == "scissors") {
+			if (computerSelection == "paper") {
+				humanScore += 1;
+				return "You won! Scissors beats paper."
+			} else {
+				computerScore += 1;
+				return "You lost! Rock beats scissors."
+			}
+		} else {
+			return "I"
+		} 
+		
+		
 	}
 
-	if (humanChoice == "rock") {
-		if (computerChoice == "scissors") {
-			return "You won! Rock beats scissors."
-		} else {
-			return "You lost! Paper beats rock."
-		}
-	} 
+	console.log(playRound());
+	console.log(playRound());
+	console.log(playRound());
+	console.log(playRound());
+	console.log(playRound());
+	console.log("Human: " + humanScore + "\nComputer: " + computerScore)
+	if (humanScore > computerScore) {
+		alert("You won!");
+	} else {
+		alert("You lost!");
+	}
 
-	if (humanChoice == "paper") {
-		if (computerChoice == "rock") {
-			return "You won! paper beats rock."
-		} else {
-			return "You lost! Scissors beats paper."
-		}
-	} 
-
-	if (humanChoice == "scissors") {
-		if (computerChoice == "paper") {
-			return "You won! Scissors beats paper."
-		} else {
-			return "You lost! Rock beats scissors."
-		}
-	} 
-
-	
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-console.log(playRound(humanSelection, computerSelection));
+playGame();
