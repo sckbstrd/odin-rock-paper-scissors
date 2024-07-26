@@ -1,3 +1,10 @@
+// Global Variables 
+
+let humanScore = 0; 
+let computerScore = 0; 
+
+// Functions
+
 function getComputerChoice() {
 	let n = Math.floor(Math.random() * 99);
 	let choice;
