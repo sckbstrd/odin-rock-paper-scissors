@@ -1,3 +1,30 @@
+// 
+
+const containerDiv = document.querySelector("div");
+
+
+
+const buttonRock = document.createElement("button");
+buttonRock.setAttribute('class', "buttonRock");
+buttonRock.textContent = "rock";
+
+const buttonPaper = document.createElement("button");
+buttonPaper.setAttribute('class', "buttonPaper");
+buttonPaper.textContent = "paper";
+
+
+const buttonScissors = document.createElement("button");
+buttonScissors.setAttribute('class', "buttonScissors");
+buttonScissors.textContent = "scissors";
+
+containerDiv.append(buttonRock, buttonPaper, buttonScissors);
+
+containerDiv.setAttribute('style', 'display: flex; flex-direction: column; align-items: center;')
+
+document.querySelectorAll('button')
+        .forEach( x=> x.setAttribute("style","display: block; margin-bottom: 2vw; width:35vw; height:10vh; font-size: 2vw;"))
+
+
 // Functions
 
 function getComputerChoice() {
@@ -67,24 +94,28 @@ function playGame() {
 				return "You lost! Rock beats scissors."
 			}
 		} else {
-			return "I"
+			return "Invalid input"
 		} 
 		
 		
 	}
 
-	console.log(playRound());
-	console.log(playRound());
-	console.log(playRound());
-	console.log(playRound());
-	console.log(playRound());
+	let times = 5;
+
+	for (i = 0; i < times; i++)
+		{
+			console.log(playRound());
+		}
+	
+
 	console.log("Human: " + humanScore + "\nComputer: " + computerScore)
 	if (humanScore > computerScore) {
 		alert("You won!");
+	} else if (humanScore == computerScore) {
+		alert("It's a tie! Nobody won!");
 	} else {
 		alert("You lost!");
 	}
 
 }
 
-playGame();
