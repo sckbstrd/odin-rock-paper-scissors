@@ -1,20 +1,20 @@
 // 
 
-const containerDiv = document.querySelector("div");
+const containerDiv = document.getElementById("container");
 
 
 
 const buttonRock = document.createElement("button");
-buttonRock.setAttribute('class', "buttonRock");
+buttonRock.setAttribute('id', "rock");
 buttonRock.textContent = "rock";
 
 const buttonPaper = document.createElement("button");
-buttonPaper.setAttribute('class', "buttonPaper");
+buttonPaper.setAttribute('id', "paper");
 buttonPaper.textContent = "paper";
 
 
 const buttonScissors = document.createElement("button");
-buttonScissors.setAttribute('class', "buttonScissors");
+buttonScissors.setAttribute('id', "scissors");
 buttonScissors.textContent = "scissors";
 
 containerDiv.append(buttonRock, buttonPaper, buttonScissors);
@@ -25,7 +25,10 @@ document.querySelectorAll('button')
         .forEach( x=> x.setAttribute("style","display: block; margin-bottom: 2vw; width:35vw; height:10vh; font-size: 2vw;"))
 
 
+
 // Functions
+
+
 
 function getComputerChoice() {
 	let n = Math.floor(Math.random() * 99);
@@ -43,6 +46,7 @@ function getComputerChoice() {
 }	
 
 function getHumanChoice() {
+
 	let choice = prompt("Rock? Paper? Scissors?: ").toLowerCase();
 	return choice;
 }
@@ -100,7 +104,7 @@ function playGame() {
 		
 	}
 
-	let times = 5;
+	let times = 1;
 
 	for (i = 0; i < times; i++)
 		{
@@ -119,3 +123,4 @@ function playGame() {
 
 }
 
+playGame();
