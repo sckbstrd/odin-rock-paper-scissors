@@ -57,7 +57,28 @@ function playGame(times=5) {
 		let humanSelection = getHumanChoice(event);
 		let computerSelection = getComputerChoice();
 
-		if (humanSelection == computerSelection) {
+		if (humanScore == times - 1) {
+			computerScore += 1;
+			if (humanSelection == "rock") {
+				const result = document.createElement("p");
+				result.textContent = "rock vs paper -> rock loses!";
+				results.appendChild(result);
+			}
+
+			else if (humanSelection == "paper") {
+				const result = document.createElement("p");
+				result.textContent = "paper vs scissors -> paper loses!";
+				results.appendChild(result);
+			}
+
+			else if (humanSelection == "scissors") {
+				const result = document.createElement("p");
+				result.textContent = "scissors vs rock -> scissors lose!";
+				results.appendChild(result);
+			}
+		}
+
+		else if (humanSelection == computerSelection) {
 			humanScore += 1;
 			computerScore += 1;
 			const result = document.createElement("p");
@@ -108,11 +129,11 @@ function playGame(times=5) {
 		} else {
 			alert("Press on the buttons!")
 		} 			
-		
-		if (computerScore == times || humanScore == times) {
+
+		if (computerScore == times) {
 			containerDiv.removeEventListener('click', playRound);
 			if (humanScore > computerScore) {
-				alert(`You: ${humanScore}\nComputer: ${computerScore}\nCongratulations! You won! Hebele hübele!`);
+				alert(`You: ${humanScore}\nComputer: ${computerScore}\nHow did you win? You weren't supposed to win.`);
 			} else if (humanScore < computerScore) {
 				alert(`You: ${humanScore}\nComputer: ${computerScore}\nOh no! You lost!`);
 			} else {
