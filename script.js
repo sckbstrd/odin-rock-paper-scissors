@@ -113,10 +113,12 @@ function playGame(times=5) {
 			containerDiv.removeEventListener('click', playRound);
 			if (humanScore > computerScore) {
 				alert(`You: ${humanScore}\nComputer: ${computerScore}\nCongratulations! You won!`);
-			} else {
+			} else if (humanScore < computerScore) {
 				alert(`You: ${humanScore}\nComputer: ${computerScore}\nOh no! You lost!`);
+			} else {
+				alert(`You: ${humanScore}\nComputer: ${computerScore}\nWow! It's a tie!`);
 			}
-			
+			 
 		}
 	});
 		
